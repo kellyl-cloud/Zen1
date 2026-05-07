@@ -1,0 +1,6 @@
+# No external dependencies — the converter uses Python stdlib only.
+# Install Label Studio separately when running the annotation tool:
+#
+#   pip install label-studio
+#
+# Python >= 3.8 required.

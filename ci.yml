@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-converter:
+    name: Validate Ango → Label Studio converter
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run converter on sample input
+        run: |
+          python scripts/ango_to_label_studio.py \
+            samples/sample_ango_input.json \
+            /tmp/test_output.json
+
+      - name: Validate output is valid JSON
+        run: |
+          python -c "
+          import json, sys
+
+          with open('/tmp/test_output.json') as f:
+              data = json.load(f)
+
+          assert isinstance(data, list), 'Output should be a list'
+          assert len(data) > 0, 'Output should not be empty'
+
+          for task in data:
+              assert 'data' in task, 'Each task must have a data field'
+              assert 'predictions' in task, 'Each task must have a predictions field'
+              for pred in task['predictions']:
+                  for region in pred['result']:
+                      v = region['value']
+                      assert v['start'] < v['end'], f'start must be < end: {v}'
+                      assert len(v['labels']) > 0, 'Region must have at least one label'
+
+          print(f'✓ Output has {len(data)} tasks')
+          total_regions = sum(len(t[\"predictions\"][0][\"result\"]) for t in data)
+          print(f'✓ Total labeled regions: {total_regions}')
+          print('All checks passed.')
+          "
+
+      - name: Confirm output matches committed sample
+        run: |
+          python -c "
+          import json
+
+          with open('/tmp/test_output.json') as f:
+              generated = json.load(f)
+
+          with open('samples/sample_ls_output.json') as f:
+              committed = json.load(f)
+
+          # Compare region counts per task
+          for g, c in zip(generated, committed):
+              g_regions = len(g['predictions'][0]['result'])
+              c_regions = len(c['predictions'][0]['result'])
+              name = g['data']['participant_name']
+              assert g_regions == c_regions, \
+                  f'{name}: expected {c_regions} regions, got {g_regions}'
+              print(f'✓ {name}: {g_regions} regions match')
+
+          print('Sample output matches committed file.')
+          "

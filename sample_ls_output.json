@@ -1,0 +1,154 @@
+[
+  {
+    "data": {
+      "audio_url": "sample-track-001.mp3",
+      "track_id": "sample-track-001",
+      "participant_name": "Speaker A",
+      "transcript": "Hello, um, welcome to the podcast. Today we're gonna talk about uh, machine learning."
+    },
+    "predictions": [
+      {
+        "model_version": "ango-export",
+        "score": 1.0,
+        "result": [
+          {
+            "id": "region_sample-track-001_1",
+            "from_name": "label",
+            "to_name": "audio",
+            "type": "labels",
+            "origin": "prediction",
+            "value": {
+              "start": 1.0,
+              "end": 1.4,
+              "labels": [
+                "um-ah"
+              ],
+              "text": "um,"
+            }
+          },
+          {
+            "id": "region_sample-track-001_2",
+            "from_name": "label",
+            "to_name": "audio",
+            "type": "labels",
+            "origin": "prediction",
+            "value": {
+              "start": 1.4,
+              "end": 1.9,
+              "labels": [
+                "verbatim"
+              ],
+              "text": "welcome"
+            }
+          },
+          {
+            "id": "region_sample-track-001_3",
+            "from_name": "label",
+            "to_name": "audio",
+            "type": "labels",
+            "origin": "prediction",
+            "value": {
+              "start": 2.4,
+              "end": 3.0,
+              "labels": [
+                "verbatim"
+              ],
+              "text": "podcast."
+            }
+          },
+          {
+            "id": "region_sample-track-001_4",
+            "from_name": "label",
+            "to_name": "audio",
+            "type": "labels",
+            "origin": "prediction",
+            "value": {
+              "start": 5.4,
+              "end": 5.8,
+              "labels": [
+                "um-ah"
+              ],
+              "text": "uh,"
+            }
+          },
+          {
+            "id": "region_sample-track-001_5",
+            "from_name": "label",
+            "to_name": "audio",
+            "type": "labels",
+            "origin": "prediction",
+            "value": {
+              "start": 5.8,
+              "end": 6.3,
+              "labels": [
+                "verbatim"
+              ],
+              "text": "machine"
+            }
+          },
+          {
+            "id": "region_sample-track-001_6",
+            "from_name": "label",
+            "to_name": "audio",
+            "type": "labels",
+            "origin": "prediction",
+            "value": {
+              "start": 6.3,
+              "end": 7.0,
+              "labels": [
+                "verbatim"
+              ],
+              "text": "learning."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "data": {
+      "audio_url": "sample-track-002.mp3",
+      "track_id": "sample-track-002",
+      "participant_name": "Speaker B",
+      "transcript": "Yeah, absolutely. I've been thinking about this a lot."
+    },
+    "predictions": [
+      {
+        "model_version": "ango-export",
+        "score": 1.0,
+        "result": [
+          {
+            "id": "region_sample-track-002_1",
+            "from_name": "label",
+            "to_name": "audio",
+            "type": "labels",
+            "origin": "prediction",
+            "value": {
+              "start": 7.9,
+              "end": 8.5,
+              "labels": [
+                "verbatim"
+              ],
+              "text": "absolutely."
+            }
+          },
+          {
+            "id": "region_sample-track-002_2",
+            "from_name": "label",
+            "to_name": "audio",
+            "type": "labels",
+            "origin": "prediction",
+            "value": {
+              "start": 9.0,
+              "end": 9.4,
+              "labels": [
+                "verbatim"
+              ],
+              "text": "thinking"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

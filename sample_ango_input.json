@@ -1,0 +1,60 @@
+[
+  {
+    "trackId": "sample-track-001",
+    "participantId": "participant-001",
+    "participantName": "Speaker A",
+    "utterances": [
+      {
+        "words": ["Hello,", "um,", "welcome", "to", "the", "podcast."],
+        "startTimes": [0.5, 1.0, 1.4, 1.9, 2.1, 2.4],
+        "endTimes":   [1.0, 1.4, 1.9, 2.1, 2.4, 3.0],
+        "tags": [
+          [],
+          ["um-ah"],
+          ["verbatim"],
+          [],
+          [],
+          ["verbatim"]
+        ]
+      },
+      {
+        "words": ["Today", "we're", "gonna", "talk", "about", "uh,", "machine", "learning."],
+        "startTimes": [3.5, 3.9, 4.2, 4.7, 5.0, 5.4, 5.8, 6.3],
+        "endTimes":   [3.9, 4.2, 4.7, 5.0, 5.4, 5.8, 6.3, 7.0],
+        "tags": [
+          [],
+          [],
+          [],
+          [],
+          [],
+          ["um-ah"],
+          ["verbatim"],
+          ["verbatim"]
+        ]
+      }
+    ]
+  },
+  {
+    "trackId": "sample-track-002",
+    "participantId": "participant-002",
+    "participantName": "Speaker B",
+    "utterances": [
+      {
+        "words": ["Yeah,", "absolutely.", "I've", "been", "thinking", "about", "this", "a", "lot."],
+        "startTimes": [7.5, 7.9, 8.5, 8.8, 9.0, 9.4, 9.7, 9.9, 10.1],
+        "endTimes":   [7.9, 8.5, 8.8, 9.0, 9.4, 9.7, 9.9, 10.1, 10.6],
+        "tags": [
+          [],
+          ["verbatim"],
+          [],
+          [],
+          ["verbatim"],
+          [],
+          [],
+          [],
+          []
+        ]
+      }
+    ]
+  }
+]

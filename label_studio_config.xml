@@ -1,0 +1,29 @@
+<View>
+  <!-- Audio player -->
+  <Audio name="audio" value="$audio_url" />
+
+  <!-- NER label set -->
+  <Labels name="label" toName="audio">
+    <Label value="verbatim"  background="#4A90D9"/>
+    <Label value="um-ah"     background="#F5A623"/>
+  </Labels>
+
+  <!-- Per-region transcript text (pre-filled from Ango export) -->
+  <TextArea
+    name="word_text"
+    toName="audio"
+    perRegion="true"
+    value="$transcript"
+    placeholder="word"
+    rows="1"
+    editable="true"
+  />
+
+  <!-- Top-level transcript for reference -->
+  <Header value="Full Transcript"/>
+  <Text name="transcript" value="$transcript"/>
+
+  <!-- Speaker metadata -->
+  <Header value="Speaker"/>
+  <Text name="speaker" value="$participant_name"/>
+</View>
